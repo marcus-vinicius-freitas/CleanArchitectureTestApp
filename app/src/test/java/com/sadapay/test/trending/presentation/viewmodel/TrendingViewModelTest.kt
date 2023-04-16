@@ -3,6 +3,7 @@
 package com.sadapay.test.trending.presentation.viewmodel
 
 import junit.framework.Assert.assertNotNull
+import junit.framework.Assert.assertNull
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -24,6 +25,15 @@ class TrendingViewModelTest {
 
         // then
         assertNotNull(viewModel.trendingReposState.value)
+    }
+
+    @Test
+    fun `getTrendingRepos should return null`() = runTest {
+        // when
+        viewModel.getTrendingRepos()
+
+        // then
+        assertNull(viewModel.trendingReposState.value)
     }
 
 }

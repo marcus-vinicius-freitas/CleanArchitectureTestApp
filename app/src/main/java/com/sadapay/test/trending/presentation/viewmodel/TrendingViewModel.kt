@@ -9,7 +9,7 @@ class TrendingViewModel : ViewModel() {
     val trendingReposState: MutableState<String?> = mutableStateOf(null)
 
     fun getTrendingRepos() {
-
+        trendingReposState.value = "test"
     }
 
 }
