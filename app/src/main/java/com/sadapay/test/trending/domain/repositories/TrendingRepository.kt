@@ -6,7 +6,7 @@ import com.sadapay.test.trending.domain.models.TrendingModel
 import javax.inject.Inject
 
 interface TrendingRepository {
-    suspend fun getTrendingRepos(): TrendingModel
+    suspend fun getTrendingRepos(): TrendingModel?
 }
 
 class TrendingRepositoryImpl @Inject constructor(
@@ -14,10 +14,13 @@ class TrendingRepositoryImpl @Inject constructor(
     private val mapper: TrendingMapper
 ) : TrendingRepository {
 
-    override suspend fun getTrendingRepos(): TrendingModel {
-        return mapper.toTrendingModel(
-            apiService.getTrendingRepositories()
-        )
+    override suspend fun getTrendingRepos(): TrendingModel? {
+        val result = apiService.getTrendingRepositories().body()
+        return if (result != null) {
+            mapper.toTrendingModel(result)
+        } else {
+            null
+        }
     }
 
 }

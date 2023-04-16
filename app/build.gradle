@@ -93,6 +93,10 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$mockito_version"
     androidTestImplementation "org.mockito:mockito-android:$mockito_version"
 
+    // Mock WebServer
+    def mock_web_server = "4.9.1"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_web_server"
+
     // Espresso
     def test_version = "1.5.0"
     def espresso_version = "3.5.1"
