@@ -4,17 +4,16 @@ import com.sadapay.test.trending.domain.models.TrendingModel
 import com.sadapay.test.trending.domain.repositories.TrendingRepository
 
 interface GetTrendingReposUseCase {
-    suspend fun execute(): Result<TrendingModel?>
+    suspend fun execute(): TrendingModel?
 }
 
 class GetTrendingReposUseCaseImpl(private val repository: TrendingRepository) : GetTrendingReposUseCase {
 
-    override suspend fun execute(): Result<TrendingModel?> {
+    override suspend fun execute(): TrendingModel? {
         return try {
-            val repositories = repository.getTrendingRepos()
-            Result.success(repositories)
+            repository.getTrendingRepos()
         } catch (exception: Exception) {
-            Result.failure(exception)
+            null
         }
     }
 
