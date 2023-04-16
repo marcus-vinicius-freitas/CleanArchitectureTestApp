@@ -1,4 +1,4 @@
-package com.sadapay.test.trending.ui
+package com.sadapay.test.trending.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
