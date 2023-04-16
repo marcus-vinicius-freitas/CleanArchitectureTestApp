@@ -1,7 +1,17 @@
+buildscript {
+    repositories {
+        google()
+        maven { url "https://jitpack.io" }
+    }
+}
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk 33
