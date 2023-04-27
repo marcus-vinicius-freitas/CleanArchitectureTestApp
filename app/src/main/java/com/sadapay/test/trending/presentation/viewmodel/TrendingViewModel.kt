@@ -1,6 +1,5 @@
 package com.sadapay.test.trending.presentation.viewmodel
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.sadapay.test.trending.domain.models.TrendingModel
 import com.sadapay.test.trending.domain.usecases.GetTrendingReposUseCase
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 class TrendingViewModel @Inject constructor(
