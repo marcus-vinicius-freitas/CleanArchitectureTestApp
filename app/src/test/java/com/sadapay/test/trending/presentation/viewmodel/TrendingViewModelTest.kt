@@ -3,6 +3,7 @@
 
 package com.sadapay.test.trending.presentation.viewmodel
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockito_kotlin.*
 import com.sadapay.test.trending.domain.models.TrendingItemModel
 import com.sadapay.test.trending.domain.models.TrendingModel
@@ -16,9 +17,13 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
 class TrendingViewModelTest {
+
+    @get:Rule
+    val testRule = InstantTaskExecutorRule()
 
     private val mainThreadSurrogate = newSingleThreadContext("Test")
 
@@ -45,6 +50,7 @@ class TrendingViewModelTest {
             TrendingItemModel("test1", null, null, null),
             TrendingItemModel("test2", null, null, null)
         )
+
         given(getTrendingReposUseCase.execute()).willReturn(
             TrendingModel(
                 items = mockRepos
@@ -57,7 +63,7 @@ class TrendingViewModelTest {
         // then
         verify(getTrendingReposUseCase).execute()
         assert(mockRepos == viewModel.trendingReposState.value?.items)
-        assert(!viewModel.loadingState.value)
+        assert(!viewModel.loadingState.value!!)
         reset(getTrendingReposUseCase)
     }
 

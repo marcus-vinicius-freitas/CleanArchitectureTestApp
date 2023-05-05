@@ -1,20 +1,21 @@
 package com.sadapay.test.trending.presentation.viewmodel
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sadapay.test.trending.domain.models.TrendingModel
 import com.sadapay.test.trending.domain.usecases.GetTrendingReposUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class TrendingViewModel @Inject constructor(
     private val getTrendingReposUseCase: GetTrendingReposUseCase
 ) : ViewModel() {
 
-    val trendingReposState: MutableState<TrendingModel?> = mutableStateOf(null)
-    val loadingState: MutableState<Boolean> = mutableStateOf(false)
+    val trendingReposState: MutableLiveData<TrendingModel?> = MutableLiveData()
+    val loadingState: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getTrendingRepos() {
         viewModelScope.launch {

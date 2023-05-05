@@ -3,34 +3,48 @@
 
 package com.sadapay.test.trending.presentation.ui
 
-import androidx.activity.ComponentActivity
-import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithText
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.nhaarman.mockito_kotlin.given
 import com.sadapay.test.MainActivity
+import com.sadapay.test.R
 import com.sadapay.test.trending.domain.models.TrendingItemModel
 import com.sadapay.test.trending.domain.models.TrendingModel
 import com.sadapay.test.trending.domain.repositories.TrendingRepository
 import com.sadapay.test.trending.domain.usecases.GetTrendingReposUseCaseImpl
 import com.sadapay.test.trending.presentation.viewmodel.TrendingViewModel
+import com.sadapay.test.utils.launchFragmentInHiltContainer
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import org.hamcrest.Matchers.not
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
 
+@HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 class TrendingUITest {
 
-    @get:Rule
-    val composeTestRule = createAndroidComposeRule<ComponentActivity>()
+    @get:Rule(order = 0)
+    var hiltRule = HiltAndroidRule(this)
+
+    @get:Rule(order = 1)
+    val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
     fun getTrendingRepoShouldBeSuccess() = runTest {
         // Set up the mock data and dependencies
+        launchFragmentInHiltContainer<TrendingFragment> {
+            // The ViewModel will be automatically injected by Hilt
+        }
+
         val mockRepository = mock(TrendingRepository::class.java)
         val mockUseCase = GetTrendingReposUseCaseImpl(mockRepository)
 
@@ -44,18 +58,13 @@ class TrendingUITest {
             mockData
         ))
 
-        // Launch the screen with the mocked data
-        composeTestRule.setContent {
-            TrendingScreen(viewModel = TrendingViewModel(mockUseCase))
-        }
-
         // Wait for the screen to load and verify that the list is displayed with the expected data
-        composeTestRule.onNodeWithText("repo1").assertIsDisplayed()
-        composeTestRule.onNodeWithText("repo2").assertIsDisplayed()
-        composeTestRule.onNodeWithText("repo3").assertIsDisplayed()
+        onView(withId(R.id.repositoryList)).check(matches(hasDescendant(withText("repo1"))))
+        onView(withId(R.id.repositoryList)).check(matches(hasDescendant(withText("repo2"))))
+        onView(withId(R.id.repositoryList)).check(matches(hasDescendant(withText("repo3"))))
 
         // Verify that the error message is not displayed
-        composeTestRule.onNodeWithText("Something went wrong").assertDoesNotExist()
+        onView(withId(R.id.errorMessage)).check(matches(not(isDisplayed())))
     }
 
 

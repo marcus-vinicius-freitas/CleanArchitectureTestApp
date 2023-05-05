@@ -10,8 +10,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk 33
@@ -23,7 +23,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.sadapay.test.utils.CustomTestRunner"
     }
 
     buildTypes {
