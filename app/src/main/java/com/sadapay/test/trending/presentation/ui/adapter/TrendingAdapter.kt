@@ -2,6 +2,7 @@ package com.sadapay.test.trending.presentation.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -29,6 +30,8 @@ class TrendingAdapter(
             .into(holder.binding.userAvatar)
         holder.binding.userName.text = repository.owner?.login
         holder.binding.repositoryDescription.text = repository.description
+        holder.binding.languageDot.visibility = if (repository.language?.isNotEmpty() == true) View.VISIBLE else View.GONE
+        holder.binding.language.text = repository.language
     }
 
     override fun getItemCount(): Int {

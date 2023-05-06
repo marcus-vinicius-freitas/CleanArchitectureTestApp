@@ -17,8 +17,8 @@ class FakeTrendingRepository @Inject constructor() : TrendingRepository {
                         login = "user1",
                         avatarUrl = "https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/22/35/20187351.jpg"
                     ),
-                    language = "",
-                    stargazersCount = null
+                    language = "Python",
+                    stargazersCount = 100
                 ),
                 TrendingItemModel(
                     name = "repo2",
@@ -27,8 +27,8 @@ class FakeTrendingRepository @Inject constructor() : TrendingRepository {
                         login = "user2",
                         avatarUrl = "https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/22/35/20187351.jpg"
                     ),
-                    language = "",
-                    stargazersCount = null
+                    language = "Java",
+                    stargazersCount = 200
                 ),
                 TrendingItemModel(
                     name = "repo3",
@@ -37,8 +37,8 @@ class FakeTrendingRepository @Inject constructor() : TrendingRepository {
                         login = "user3",
                         avatarUrl = "https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/22/35/20187351.jpg"
                     ),
-                    language = "",
-                    stargazersCount = null
+                    language = "Kotlin",
+                    stargazersCount = 300
                 )
             )
         )
