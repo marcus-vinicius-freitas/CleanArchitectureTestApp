@@ -44,7 +44,7 @@ class TrendingFragment : Fragment() {
     }
 
     private fun processLoading(isLoading: Boolean?) {
-
+        binding.loadingPanel.visibility = if (isLoading == true) View.VISIBLE else View.INVISIBLE
     }
 
     private fun processResult(model: TrendingModel?) {

@@ -6,6 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".trending.presentation.ui.TrendingFragment">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loadingPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/data_placeholder_item" />
+            <include layout="@layout/data_placeholder_item" />
+            <include layout="@layout/data_placeholder_item" />
+            <include layout="@layout/data_placeholder_item" />
+            <include layout="@layout/data_placeholder_item" />
+            <include layout="@layout/data_placeholder_item" />
+            <include layout="@layout/data_placeholder_item" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <LinearLayout
         android:id="@+id/errorPanel"
         app:layout_constraintStart_toStartOf="parent"
