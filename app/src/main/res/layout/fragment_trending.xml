@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".trending.presentation.ui.TrendingFragment">
 
     <LinearLayout
@@ -12,6 +11,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
+        android:padding="16dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

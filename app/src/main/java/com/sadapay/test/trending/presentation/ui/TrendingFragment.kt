@@ -49,7 +49,7 @@ class TrendingFragment : Fragment() {
 
     private fun processResult(model: TrendingModel?) {
         model?.let {
-            binding.repositoryList.adapter = TrendingAdapter(it.items)
+            binding.repositoryList.adapter = TrendingAdapter(requireContext(), it.items)
             binding.errorPanel.visibility = View.INVISIBLE
         }
     }
