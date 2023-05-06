@@ -13,6 +13,7 @@ class TrendingMapper @Inject constructor() {
             dataModel.items.map {
                 TrendingItemModel(
                     it.name,
+                    it.description,
                     OwnerModel(
                         it.owner?.login,
                         it.owner?.avatarUrl

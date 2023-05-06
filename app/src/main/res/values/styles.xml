@@ -7,4 +7,8 @@
     <style name="italicText">
         <item name="android:textStyle">italic</item>
     </style>
+
+    <style name="small">
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

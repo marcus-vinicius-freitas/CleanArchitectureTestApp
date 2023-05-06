@@ -27,6 +27,8 @@ class TrendingAdapter(
             .load(repository.owner?.avatarUrl)
             .circleCrop()
             .into(holder.binding.userAvatar)
+        holder.binding.userName.text = repository.owner?.login
+        holder.binding.repositoryDescription.text = repository.description
     }
 
     override fun getItemCount(): Int {

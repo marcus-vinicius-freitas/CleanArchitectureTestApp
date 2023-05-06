@@ -110,5 +110,34 @@ class TrendingUITest {
         onView(withId(R.id.errorMessage)).check(matches(not(isDisplayed())))
     }
 
+    @Test
+    fun getTrendingRepoShouldShowRepoDescription() = runTest {
+        // Wait for the screen to load and verify that the list is displayed with the expected data
+        onView(withId(R.id.repositoryList)).check(
+            matches(
+                allOf(
+                    isDisplayed(),
+                    hasDescendant(withText("description1")))
+            )
+        )
+        onView(withId(R.id.repositoryList)).check(
+            matches(
+                allOf(
+                    isDisplayed(),
+                    hasDescendant(withText("description2")))
+            )
+        )
+        onView(withId(R.id.repositoryList)).check(
+            matches(
+                allOf(
+                    isDisplayed(),
+                    hasDescendant(withText("description3")))
+            )
+        )
+
+        // Verify that the error message is not displayed
+        onView(withId(R.id.errorMessage)).check(matches(not(isDisplayed())))
+    }
+
 
 }

@@ -2,6 +2,7 @@ package com.sadapay.test.trending.domain.models
 
 data class TrendingItemModel(
     val name: String?,
+    val description: String?,
     val owner: OwnerModel?,
     val language: String?,
     val stargazersCount: Int?,

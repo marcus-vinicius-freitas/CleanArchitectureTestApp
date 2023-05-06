@@ -9,6 +9,7 @@ data class OwnerDataModel(
 
 data class TrendingItemDataModel(
     val name: String?,
+    val description: String?,
     val owner: OwnerDataModel?,
     val language: String?,
     @SerializedName("stargazers_count") val stargazersCount: Int?,
