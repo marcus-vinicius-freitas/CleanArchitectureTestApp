@@ -17,7 +17,7 @@ class TrendingRepositoryImpl @Inject constructor(
     override suspend fun getTrendingRepos(): TrendingModel? {
         val result = apiService.getTrendingRepositories().body()
         return if (result != null) {
-            mapper.toTrendingModel(result)
+            null
         } else {
             null
         }

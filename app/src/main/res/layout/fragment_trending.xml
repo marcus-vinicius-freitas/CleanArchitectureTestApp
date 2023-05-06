@@ -12,15 +12,42 @@
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
         android:padding="16dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/errorMessage"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/anim_retry"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/boldText"
+            android:textSize="16sp"
             android:text="@string/error" />
+
+        <TextView
+            android:id="@+id/errorDescription"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_description" />
+
+        <Button
+            android:id="@+id/retryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/retry_button"
+            style="?attr/materialButtonOutlinedStyle" />
 
     </LinearLayout>
 

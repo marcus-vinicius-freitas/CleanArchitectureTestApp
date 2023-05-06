@@ -51,6 +51,11 @@ class TrendingFragment : Fragment() {
         model?.let {
             binding.repositoryList.adapter = TrendingAdapter(requireContext(), it.items)
             binding.errorPanel.visibility = View.INVISIBLE
+        } ?: run {
+            binding.errorPanel.visibility = View.VISIBLE
+            binding.retryButton.setOnClickListener {
+                viewModel.getTrendingRepos()
+            }
         }
     }
 

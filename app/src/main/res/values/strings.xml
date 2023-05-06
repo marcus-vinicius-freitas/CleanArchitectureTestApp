@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">SadaPayTest</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="trending_fragment_label">Trending</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="trendingTitle">trending</string>
     <string name="settingsMenuTitle">Settings</string>
-    <string name="error">Something went wrong</string>
+    <string name="error">Something went wrong…</string>
+    <string name="error_description">An Alien is probably blocking your signal.</string>
+    <string name="retry_button">Retry</string>
 </resources>
