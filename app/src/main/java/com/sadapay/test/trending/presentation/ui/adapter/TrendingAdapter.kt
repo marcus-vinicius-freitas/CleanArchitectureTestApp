@@ -32,6 +32,8 @@ class TrendingAdapter(
         holder.binding.repositoryDescription.text = repository.description
         holder.binding.languageDot.visibility = if (repository.language?.isNotEmpty() == true) View.VISIBLE else View.GONE
         holder.binding.language.text = repository.language
+        holder.binding.star.visibility = if (repository.stargazersCount != null) View.VISIBLE else View.GONE
+        holder.binding.startCount.text = repository.stargazersCount?.toString()
     }
 
     override fun getItemCount(): Int {
