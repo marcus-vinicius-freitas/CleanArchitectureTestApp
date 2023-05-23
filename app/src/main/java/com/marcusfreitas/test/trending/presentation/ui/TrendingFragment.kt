@@ -11,6 +11,7 @@ import com.marcusfreitas.test.trending.domain.models.TrendingModel
 import com.marcusfreitas.test.trending.presentation.ui.adapter.TrendingAdapter
 import com.marcusfreitas.test.trending.presentation.viewmodel.TrendingViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class TrendingFragment : Fragment() {
@@ -20,6 +21,9 @@ class TrendingFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel : TrendingViewModel by viewModels()
+
+    @Inject
+    lateinit var adapter: TrendingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +53,8 @@ class TrendingFragment : Fragment() {
 
     private fun processResult(model: TrendingModel?) {
         model?.let {
-            binding.repositoryList.adapter = TrendingAdapter(requireContext(), it.items)
+            binding.repositoryList.adapter = adapter
+            adapter.setRepositories(model.items)
             binding.errorPanel.visibility = View.INVISIBLE
         } ?: run {
             binding.errorPanel.visibility = View.VISIBLE
