@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.sadapay.test.trending.presentation.ui.TrendingFragment"
+        android:name="com.marcusfreitas.test.trending.presentation.ui.TrendingFragment"
         android:label="@string/trending_fragment_label"
         tools:layout="@layout/fragment_trending">
     </fragment>
