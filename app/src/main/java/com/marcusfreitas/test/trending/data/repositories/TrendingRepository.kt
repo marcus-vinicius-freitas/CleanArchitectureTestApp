@@ -1,4 +1,4 @@
-package com.marcusfreitas.test.trending.domain.repositories
+package com.marcusfreitas.test.trending.data.repositories
 
 import com.marcusfreitas.test.trending.data.mappers.TrendingMapper
 import com.marcusfreitas.test.trending.data.service.ApiService

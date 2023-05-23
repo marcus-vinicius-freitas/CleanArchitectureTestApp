@@ -2,6 +2,8 @@ package com.marcusfreitas.test.trending.presentation.di
 
 import com.google.gson.GsonBuilder
 import com.marcusfreitas.test.trending.data.mappers.TrendingMapper
+import com.marcusfreitas.test.trending.data.repositories.TrendingRepository
+import com.marcusfreitas.test.trending.data.repositories.TrendingRepositoryImpl
 import com.marcusfreitas.test.trending.data.service.ApiService
 import dagger.Module
 import dagger.Provides
@@ -41,6 +43,18 @@ internal object DataModule {
     @Provides
     fun providesMapper(): TrendingMapper {
         return TrendingMapper()
+    }
+
+    @Singleton
+    @Provides
+    fun providesTrendingRepository(
+        service: ApiService,
+        mapper: TrendingMapper
+    ): TrendingRepository {
+        return TrendingRepositoryImpl(
+            service,
+            mapper
+        )
     }
 
 }

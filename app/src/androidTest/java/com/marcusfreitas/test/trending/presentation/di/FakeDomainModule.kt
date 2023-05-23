@@ -1,7 +1,7 @@
 package com.marcusfreitas.test.trending.presentation.di
 
-import com.marcusfreitas.test.trending.domain.repositories.FakeTrendingRepository
-import com.marcusfreitas.test.trending.domain.repositories.TrendingRepository
+import com.marcusfreitas.test.trending.data.repositories.FakeTrendingRepository
+import com.marcusfreitas.test.trending.data.repositories.TrendingRepository
 import com.marcusfreitas.test.trending.domain.usecases.GetTrendingReposUseCase
 import com.marcusfreitas.test.trending.domain.usecases.GetTrendingReposUseCaseImpl
 import dagger.Module

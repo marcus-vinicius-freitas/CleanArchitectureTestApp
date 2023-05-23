@@ -1,7 +1,7 @@
 package com.marcusfreitas.test.trending.domain.usecases
 
 import com.marcusfreitas.test.trending.domain.models.TrendingModel
-import com.marcusfreitas.test.trending.domain.repositories.TrendingRepository
+import com.marcusfreitas.test.trending.data.repositories.TrendingRepository
 
 interface GetTrendingReposUseCase {
     suspend fun execute(): TrendingModel?

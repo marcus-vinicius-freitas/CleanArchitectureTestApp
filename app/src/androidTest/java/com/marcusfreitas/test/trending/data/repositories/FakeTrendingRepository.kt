@@ -1,4 +1,4 @@
-package com.marcusfreitas.test.trending.domain.repositories
+package com.marcusfreitas.test.trending.data.repositories
 
 import com.marcusfreitas.test.trending.domain.models.OwnerModel
 import com.marcusfreitas.test.trending.domain.models.TrendingItemModel
