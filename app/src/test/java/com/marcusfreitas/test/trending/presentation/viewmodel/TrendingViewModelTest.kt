@@ -47,8 +47,8 @@ class TrendingViewModelTest {
     fun `getTrendingRepos should return a valid TrendingModel`() = runTest {
         // given
         val mockRepos = listOf(
-            TrendingItemModel("test1", null, null, null),
-            TrendingItemModel("test2", null, null, null)
+            TrendingItemModel("test1", null, null, null, null),
+            TrendingItemModel("test2", null, null, null, null)
         )
 
         given(getTrendingReposUseCase.execute()).willReturn(
