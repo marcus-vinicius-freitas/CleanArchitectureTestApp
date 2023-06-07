@@ -7,12 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.marcusfreitas.test.databinding.FragmentTrendingBinding
+import com.marcusfreitas.test.trending.data.mappers.TrendingMapper
+import com.marcusfreitas.test.trending.data.repositories.TrendingRepository
+import com.marcusfreitas.test.trending.data.service.ApiService
 import com.marcusfreitas.test.trending.domain.models.TrendingModel
 import com.marcusfreitas.test.trending.presentation.ui.adapter.TrendingAdapter
 import com.marcusfreitas.test.trending.presentation.viewmodel.TrendingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/**
+ * A fragment that is responsible to show the list of the trending github projects
+ */
 @AndroidEntryPoint
 class TrendingFragment : Fragment() {
 
@@ -47,10 +53,20 @@ class TrendingFragment : Fragment() {
         viewModel.getTrendingRepos()
     }
 
+    /**
+     * This method handles when the [TrendingViewModel.loadingState] changes its value
+     *
+     * @param[isLoading] A boolean parameter to inform the loading state
+     */
     private fun processLoading(isLoading: Boolean?) {
         binding.loadingPanel.visibility = if (isLoading == true) View.VISIBLE else View.INVISIBLE
     }
 
+    /**
+     * This method handles when the [TrendingViewModel.trendingReposState] changes its value
+     *
+     * @param[model] The [TrendingModel] object that is going to be used to populate the view
+     */
     private fun processResult(model: TrendingModel?) {
         model?.let {
             binding.repositoryList.adapter = adapter

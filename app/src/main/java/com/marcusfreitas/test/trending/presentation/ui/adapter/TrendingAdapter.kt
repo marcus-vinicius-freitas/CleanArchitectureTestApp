@@ -7,10 +7,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.marcusfreitas.test.databinding.TrendingRepositoryItemBinding
+import com.marcusfreitas.test.trending.data.mappers.TrendingMapper
+import com.marcusfreitas.test.trending.data.repositories.TrendingRepository
+import com.marcusfreitas.test.trending.data.service.ApiService
 import com.marcusfreitas.test.trending.domain.models.TrendingItemModel
+import com.marcusfreitas.test.trending.domain.models.TrendingModel
 import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
+/**
+ * An adapter class that is used to populate the [RecyclerView]
+ *
+ * @param[context] The [ActivityContext] of the recycler view activity
+ */
 class TrendingAdapter @Inject constructor(@ActivityContext private val context: Context) : RecyclerView.Adapter<TrendingAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: TrendingRepositoryItemBinding) : RecyclerView.ViewHolder(binding.root)
